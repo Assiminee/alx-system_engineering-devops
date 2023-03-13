@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./ -type f -mtime 7 | head -n 10
+find /alx-system_engineering-devops/0x02-shell_redirections -type f -mtime -1 -printf "%f\n" | tac
