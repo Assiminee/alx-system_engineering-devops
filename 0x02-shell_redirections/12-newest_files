@@ -1,2 +1,2 @@
 #!/bin/bash
-find /alx-system_engineering-devops/0x02-shell_redirections/ -type f -mtime -1 -printf "%f\n" | tac | head -n 10
+ls -t . | head
