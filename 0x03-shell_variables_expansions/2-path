@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(printf $PATH | tr ":" "\n"):/action
+echo $(printf $PATH):/action
