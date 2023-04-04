@@ -1,2 +1,2 @@
 #!/bin/bash
-git commit -m "Shell, init files, variables and expansions"
+git commit -m "Shell"
