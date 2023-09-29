@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 for pid in $(pidof bash)
 do
-	echo "$pid bash"
+	if [ $pid -ne $$ ]
+	then
+		echo "$pid bash"
+	fi
 done
+echo "$$ bash"
