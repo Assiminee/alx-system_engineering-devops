@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Displays PIDs of bash
 for pid in $(pidof bash)
 do
 	if [ $pid -ne $$ ]
