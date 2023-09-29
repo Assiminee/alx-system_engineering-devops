@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+for pid in $(pidof bash)
+do
+	echo "$pid bash"
+done
