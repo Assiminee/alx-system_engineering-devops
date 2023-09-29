@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Prints "Best School" 10 times and on the 9th time, prints Hi in a new line
+i=0
+while [ $i -le 9 ]
+do
+	if [ $i -eq 9 ]
+	then
+		echo "Hi"
+	fi
+	echo "Best School"
+	((i++))
+done
