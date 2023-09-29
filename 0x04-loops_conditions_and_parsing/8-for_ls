@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Prints the contents of wd with the string before the first dash removed
-for i in $(ls)
+for i in *
 do
 	echo "${i#*-}"
 done
