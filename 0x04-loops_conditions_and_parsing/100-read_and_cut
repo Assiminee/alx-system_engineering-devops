@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Reads /etc/passwd and prints the usernames, uids, and home directory paths
 filename="/etc/passwd"
-while read line
+while read -r line
 do
 	i=1
 	j=2
@@ -11,7 +11,7 @@ do
 		then
 			echo -n ":"
 		fi
-		echo -n $line | cut -z -d ":" -f $i
+		echo -n "$line" | cut -z -d ":" -f $i
 		i=$((i+j))
 		((j++))
 	done
