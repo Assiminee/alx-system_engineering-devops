@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Reads /etc/passwd and prints the usernames, uids, and home directory paths
+filename="/etc/passwd"
+while read line
+do
+	i=1
+	j=2
+	while [ $i -lt 7 ]
+	do
+		if [ $i -gt 1 ]
+		then
+			echo -n ":"
+		fi
+		echo -n $line | cut -z -d ":" -f $i
+		i=$((i+j))
+		((j++))
+	done
+	echo
+done < $filename

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Reads /etc/passwd and prints the usernames, uids, and home directory paths
+filename="/etc/passwd"
+while read line
+do
+	echo $line | cut -d ":" -f 1
