@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Prints answers to STDOUT
+echo "3"
+echo "2"
