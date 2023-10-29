@@ -1,1 +1,18 @@
 https://imgur.com/gallery/EXGWLsZ
+
+Why were the firewalls added?
+The firewalls were added so as to prevent unauthorized traffic from entering or leaving the system.
+
+Why was the SSL used?
+SSL was used to encrypt the communication between the servers and the client. It is essentially a security measure to keep communication hidden from any malicious actors.
+
+Why were monitoring clients added?
+The purpose of monitoring clients is to monitor the health of the servers and to make sure that the data of each server is consistent. This is done so as to proactively address issues as they arise. The monitoring clients can also collect log data which can be used for analysis and visualization. It helps identify patterns, anomalies, and trends in the collected log data.
+
+Why is the traffic served over HTTPS?
+The traffic is served over HTTPS so as to secure communications between servers and clients.
+
+Issues with the infrastructure:
+Terminating SSL at the load balancer level means that the load balancer decrypts the SSL-encrypted traffic before passing it to the web servers. This means that as the request is on its way to the server (coming from the load balancer) it becomes vulnerable to potential attacks.
+Having a single MySQL server capable of accepting writes poses an issue. That is because there is no backup if this database encounters an issue and is no longer operational.
+The servers in this infrastructure all have the same components. This can be problematic because it lacks diversity and redundancy. If all servers have identical components, a single issue or vulnerability could potentially affect all of them simultaneously, leading to widespread downtime.

@@ -1,1 +1,25 @@
 https://imgur.com/gallery/1hN8rAm
+
+What is a server?
+A server is a essentially a very powerful computer designed to provide services or ressources to other computers, known as clients. It is generally located in a data center for reliability and accessibility. Servers can either be physical (hardware) or virtual (software). A physical server is a very powerful computer with a powerful CPU, a sizeable memory, storage, and networking capabilities. It usually hosts multiple virtual servers. Each of these virtual servers provide some functionality or services such as web hosting and email services. Servers, whether physical or virtual, run an operating system (OS) specifically optimized for server tasks.
+
+What is the role of a domain name?
+Servers are identified by IP addresses. These addresses are numeric identifiers that computers use to locate other computers, websites or other online services. For users, domain names provide a human-readable way to identify and locate resources on the internet without having to remember the complex IP addresses. The technical role of domain names, however, is to map these names to IP addresses allowing computers to route network traffic to the correct destination.
+
+What type of DNS record www is in www.foobar.com?
+The "www" in the domain "www.foobar.com" is an A record
+
+What is the role of a web server?
+A web server’s primary function is delivering web content (static content) to users when they request it through a web browser.
+
+What is the role of the application server?
+Application servers are responsible for executing server-side code or applications that process dynamic requests from web clients. It interacts with the database, generates dynamic content and delivers data to the web server which then sends it to the client's browser.
+
+What is the role of the database?
+The role of a database is to store application data.
+
+What is the server using to communicate with the computer of the user requesting the website?
+The server uses the HTTP protocol to communicate with the user's computer when they request the website.
+
+Issues with the infrastructure:
+In this infrastructure, there are no backups and no redundancy. This will cause the whole system to stop working since this server is a single point of failure. In situations where new code must be deployed or the web server needs to be restarted, there is no backup server to take over, meaning that the website will be down for that duration. Lastly, if there is too much traffic that the server can't handle, the whole system will be in jeporady, making it impossible to scale up.
