@@ -1,0 +1,19 @@
+https://imgur.com/gallery/GjSiXgv
+
+Why were the servers added?
+To provide backups and redundancy in case of one server experiencing some issues causing it to break down. In other words, to prevent downtime as much as possible.
+
+What distribution algorithm your load balancer is configured with and how it works?
+The load balancer is using the round-robin algorithm. The choice for this algorithm comes down to the fact that all the servers are configured the same and have the same capabilities. The round-robin algorithm is used to distribute the load sequentially across all servers. It is known for its fairness since it allows all the servers in the ecosystem to process requests equally without over-burdening a single server while under-utelizing the others.
+
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both?
+The load balancer is enabling an Active-Active setup. In this setup, all the servers handle requests concurrently. The reason for this choice is to improve scalability and provide high availability.
+The difference between this setup and an Active-Passive setup is that the lattee doesn't utelize all the servers but instead keeps the passive servers on standby until they need to take over (in cases where the active servers encounter some issues causing them to stop functioning).
+
+How a database Primary-Replica (Master-Slave) cluster works? What is the difference between the Primary node and the Replica node in regard to the application?
+A database Primary-Replica (Master-Slave) cluster is a system where one server, the primary or master, handles write operations (inserts, updates, deletes), while the other servers, the replicas or slaves, mirror the data from the primary. Read operations can be distributed among the replicas, enhancing database performance and providing redundancy. This setup improves data availability, fault tolerance, and can alleviate the load on the primary server.
+
+Issues with the infrastructure:
+The infrastructure doesn't have any firewalls and doesn't use HTTPS. This means that incoming and outgoing traffic isn't filtered, which makes the whole ecosystem vulnerable to attacks. The lacks of HTTPS also means that the communications between servers and clients isn't secure, making it easy for malicious parties to eavesdrop, intercept, and attack incoming and outgoing traffic.
+The infrastructure has a single load balancer, which is a potential SPOF. If it fails, traffic won't be balanced.
+No monitoring is taking place in this infrastructure. Without monitoring, it's impossible to track server health, performance, or detect issues proactively.
