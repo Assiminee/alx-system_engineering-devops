@@ -14,5 +14,5 @@ echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 not_found_str="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 sudo sed -i "s/listen 80 default_server;/$not_found_str/" /etc/nginx/sites-enabled/default
 
-sed -i '/listen 80 default_server/i add_header "X-Served-By" $hostname;' /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server/i add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 sudo service nginx restart
