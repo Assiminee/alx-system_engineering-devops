@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Displays information about subdomains
 
-subdomain_info() {
-    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk 'NR==2 {print "The subdomain " $1 " is a " $4 " record and points to " $5}' 
+subdomain_info () {
+    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " 'NR==2 {print "The subdomain " $1 " is a " $4 " record and points to " $5}' 
 }
 
 if [ $# -eq 2 ];
