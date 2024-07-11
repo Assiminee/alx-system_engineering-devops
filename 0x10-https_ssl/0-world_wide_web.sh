@@ -2,23 +2,17 @@
 # Displays information about subdomains
 
 subdomains=("www" "lb-01" "web-01" "web-02")
-get_param() {
-    dig "$1" | grep -A1 'ANSWER SECTION:' | awk "NR==2 {print $2}"
+subdomain_info() {
+    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk 'NR==2 {print "The subdomain " $1 " is a " $4 " record and points to " $5}' 
 }
 
-if [ $# -gt 1 ];
+if [ $# -eq 2 ];
 then
-    subdomain="$2.$1"
-    rec_type=$(get_param "$subdomain" "\$4")
-    ip=$(get_param "$subdomain" "\$5")
-    echo "The subdomain $2 is a $rec_type record and points to $ip"
+    subdomain_info "$2.$1" "$2"
 elif [ $# -eq 1 ];
 then
     for subdomain in "${subdomains[@]}";
     do
-        sub="$subdomain.$1"
-        rec_type=$(get_param "$sub" "\$4")
-        ip=$(get_param "$sub" "\$5")
-        echo "The subdomain $subdomain is a $rec_type record and points to $ip"
+        subdomain_info "$subdomain.$1" "$subdomain"
     done
 fi
