@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Script that configures nginx: creates redirection and 404 routes, creates custom header
-
-sudo apt-get update
-sudo apt-get install -y nginx
-
-sed -i '/listen 80 default_server/i add_header X-Served-By $HOSTNAME;' /etc/nginx/sites-available/default
-
-sudo service nginx restart
