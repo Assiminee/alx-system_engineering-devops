@@ -11,8 +11,12 @@ then
     subdomain_info "$2.$1" "$2"
 elif [ $# -eq 1 ];
 then
-    for subdomain in "${subdomains[@]}";
-    do
-        subdomain_info "$subdomain.$1" "$subdomain"
-    done
+    subdomain_info "www.$1" "www"
+    subdomain_info "lb-01.$1" "lb-01"
+    subdomain_info "web-01.$1" "web-01"
+    subdomain_info "web-02.$1" "web-02"
+    #for subdomain in "${subdomains[@]}";
+    #do
+    #    subdomain_info "$subdomain.$1" "$subdomain"
+    #done
 fi
