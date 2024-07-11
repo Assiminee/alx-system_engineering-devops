@@ -6,11 +6,22 @@ sudo apt-get install -y --no-install-recommends software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
 sudo apt-get install -y haproxy=2.8.\*
 
-ip=$(ip addr show | grep -w inet | grep -v '127.0.0.1' | awk '{print $2}' | cut -d'/' -f1)":80"
-frnt_str="errorfile 504 \/etc\/haproxy\/errors\/504.http\n\nfrontend front\n\tbind $ip\n\tdefault_backend backend_servers"
-bck_str="default_backend backend_servers\n\nbackend backend_servers\n\tbalance roundrobin\n\tserver web1 52.3.243.178:80 check\n\tserver web2 54.197.105.101:80 check"
+config_str=\
+"
+frontend front
+	bind *:80
+	mode http
+	default_backend backend_servers
 
-sudo sed -i "s/errorfile 504 \/etc\/haproxy\/errors\/504.http/$frnt_str/" /etc/haproxy/haproxy.cfg
-sudo sed -i "s/default_backend backend_servers/$bck_str/" /etc/haproxy/haproxy.cfg
+backend backend_servers
+	balance roundrobin
+	server 396304-web-01 52.3.243.178:80 check
+	server 396304-web-02 54.197.105.101:80 check
+"
+
+echo "$config_str" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# enable haproxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 
 sudo service haproxy restart
