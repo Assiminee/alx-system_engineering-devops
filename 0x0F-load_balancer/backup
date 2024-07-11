@@ -4,15 +4,6 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-# Create redirection rewrite rule
-echo "Hello World!" | sudo tee /var/www/html/index.html
-redirection_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "s/server_name _;/$redirection_str/" /etc/nginx/sites-enabled/default
+sed -i '/listen 80 default_server/i add_header X-Served-By $HOSTNAME;' /etc/nginx/sites-available/default
 
-# Create 404 page and configure server to display it when required
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-not_found_str="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
-sudo sed -i "s/listen 80 default_server;/$not_found_str/" /etc/nginx/sites-enabled/default
-
-sed -i '/listen 80 default_server/i add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 sudo service nginx restart
