@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# debugging task: Nginx must be running, and listening on port 80 of all the server’s active IPv4 IPs
+
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.asc
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -8,4 +10,3 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo docker pull nginx
 sudo docker run --name mynginx -p 80:80 -d nginx
-curl 0:80
