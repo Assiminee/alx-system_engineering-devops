@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# configures the container so that Nginx is running as the nginx user
+
+NGINX_CONF="/etc/nginx/nginx.conf"
+sudo service nginx stop
+sudo sed -i 's/^user .*;/user nginx;/g' $NGINX_CONF
+sudo sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+sudo chmod 644 $NGINX_CONF
+sudo -u nginx service nginx start
