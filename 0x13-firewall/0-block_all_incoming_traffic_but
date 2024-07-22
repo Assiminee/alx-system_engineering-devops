@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Set up UFW: deny all incoming traffic except SSH, HTTPS SSL, and HTTP
 
+sudo apt install ufw
 sudo ufw enable
 
 sudo ufw default deny incoming
