@@ -2,13 +2,11 @@
 # Set up UFW: deny all incoming traffic except SSH, HTTPS SSL, and HTTP
 
 sudo apt install ufw
+sudo ufw enable
 
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
-sudo ufw enable ssh/tcp
-sudo ufw enable https/tcp
-sudo ufw enable http/tcp
-
-sudo ufw enable
-sudo ufw status verbose
+sudo ufw enable 22/tcp
+sudo ufw enable 443/tcp
+sudo ufw enable 80/tcp
