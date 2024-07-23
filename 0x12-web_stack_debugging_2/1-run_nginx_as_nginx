@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 # configures the container so that Nginx is running as the nginx user
 
-NGINX_CONF="/etc/nginx/nginx.conf"
-DEF_FILE="/etc/nginx/sites-available/default"
-pkill -f apache2
-sed -i 's/^user .*;/user nginx;/g' "$NGINX_CONF"
-sed -i 's/listen 80;/listen 8080;/g' "$DEF_FILE"
-chmod 777 "$NGINX_CONF"
+sudo pkill -f apache2
+sleep 10
+sudo chmod 777 /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
 sudo -u nginx nginx
