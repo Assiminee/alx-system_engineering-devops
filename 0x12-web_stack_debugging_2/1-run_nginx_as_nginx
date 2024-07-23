@@ -3,8 +3,8 @@
 
 NGINX_CONF="/etc/nginx/nginx.conf"
 DEF_FILE="/etc/nginx/sites-available/default"
-pkill apache2
+pkill -f apache2
 sed -i 's/^user .*;/user nginx;/g' "$NGINX_CONF"
 sed -i 's/listen 80;/listen 8080;/g' "$DEF_FILE"
-chmod 644 "$NGINX_CONF"
-sudo -u nginx service nginx start
+chmod 777 "$NGINX_CONF"
+sudo -u nginx nginx
