@@ -3,7 +3,5 @@
 
 pwd="$1"
 date=$(date +%d-%m-%Y)
-
 mysqldump -uroot -p"$pwd" --opt --all-databases > backup.sql
-
 tar -cvzf "$date".tar.gz backup.sql 
