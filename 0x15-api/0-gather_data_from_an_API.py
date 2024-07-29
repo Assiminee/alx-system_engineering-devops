@@ -5,6 +5,11 @@ import sys
 
 
 def display_info():
+    """
+    communicates with jsonplaceholder api to get
+    todos of employee with <userId> (passed as
+    command line argument) and displays the info
+    """
     if len(sys.argv) < 2:
         return
 
