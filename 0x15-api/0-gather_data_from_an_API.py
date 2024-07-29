@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+communicates with jsonplaceholder api to get
+todos of employee with <userId> (passed as
+command line argument) and displays the info
+"""
 
 import requests
 import sys
@@ -6,9 +11,7 @@ import sys
 
 def display_info():
     """
-    communicates with jsonplaceholder api to get
-    todos of employee with <userId> (passed as
-    command line argument) and displays the info
+    Displays employee todos
     """
     if len(sys.argv) < 2:
         return
