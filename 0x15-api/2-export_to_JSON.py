@@ -5,9 +5,9 @@ todos of employee with <userId> (passed as
 command line argument) and displays the info
 """
 
+import json
 import requests
 import sys
-import json
 
 
 def display_info():
