@@ -26,9 +26,9 @@ def display_info():
 
     name = userResp.get('name')
     completedTasks = sum(todo.get('completed') for todo in todoResp)
-    totalTasks = len(todoResp)
+    allTasks = len(todoResp)
 
-    print(f"Employee {name} is done with tasks({completedTasks}/{totalTasks}):")
+    print(f"Employee {name} is done with tasks({completedTasks}/{allTasks}):")
 
     for todo in todoResp:
         if todo.get('completed'):
