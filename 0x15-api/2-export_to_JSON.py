@@ -2,7 +2,8 @@
 """
 communicates with jsonplaceholder api to get
 todos of employee with <userId> (passed as
-command line argument) and displays the info
+command line argument) and creates json file
+containing all todos
 """
 
 import json
@@ -10,9 +11,9 @@ import requests
 import sys
 
 
-def display_info():
+def employeeTodosJson():
     """
-    Displays employee todos
+    creates json file containing employee todos
     """
     if len(sys.argv) < 2:
         return
@@ -41,4 +42,4 @@ def display_info():
 
 
 if __name__ == "__main__":
-    display_info()
+    employeeTodosJson()
