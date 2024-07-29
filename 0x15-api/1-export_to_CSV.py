@@ -26,7 +26,7 @@ def createCsv():
     todoResp = requests.get(todoURL).json()
     userResp = requests.get(userURL).json()
 
-    fieldnames=['userId', 'username', 'completed', 'title']
+    fieldnames = ['userId', 'username', 'completed', 'title']
 
     with open(f"{userId}.csv", 'a+') as csvFile:
         writer = csv.DictWriter(
