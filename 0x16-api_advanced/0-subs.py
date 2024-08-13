@@ -19,7 +19,7 @@ def number_of_subscribers(subreddit):
 
     if resp.status_code != 200:
         return 0
-    
+
     data = resp.json()['data']
     location = data['children'][0]['data']
     return location['subreddit_subscribers'], 'OK'
