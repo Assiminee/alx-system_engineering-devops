@@ -32,7 +32,7 @@ def recurse(subreddit, hot_list=[], next_page=None, count=0):
         hot_list.append(post['data']['title'])
 
     next_page = data['after']
-    
+
     if next_page is not None:
         return recurse(subreddit, hot_list, next_page, count)
     else:
